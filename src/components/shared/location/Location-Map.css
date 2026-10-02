@@ -1,0 +1,148 @@
+.location-map .maplibregl-canvas {
+  filter: sepia(0.4) saturate(0.85) contrast(0.96) brightness(1.02);
+}
+
+.carefree-marker {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+}
+
+.carefree-marker__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: rgba(23, 22, 19, 0.35);
+  animation: carefree-pulse 2.4s ease-out infinite;
+}
+
+.carefree-marker__core {
+  position: absolute;
+  inset: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: #171613;
+  color: #f3efe7;
+  box-shadow:
+    0 0 0 3px #f3efe7,
+    0 12px 24px -6px rgba(23, 22, 19, 0.5);
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.carefree-marker:hover .carefree-marker__core {
+  transform: scale(1.1);
+}
+
+@keyframes carefree-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .carefree-marker__pulse {
+    animation: none;
+    opacity: 0;
+  }
+}
+
+/* ---------- Попап ---------- */
+.carefree-popup .maplibregl-popup-content {
+  padding: 18px 20px;
+  border-radius: 20px;
+  background: #f3efe7;
+  color: #171613;
+  font-family: var(--font-display), system-ui, sans-serif;
+  box-shadow: 0 24px 50px -16px rgba(23, 22, 19, 0.45);
+}
+
+.carefree-popup.maplibregl-popup-anchor-top .maplibregl-popup-tip,
+.carefree-popup.maplibregl-popup-anchor-top-left .maplibregl-popup-tip,
+.carefree-popup.maplibregl-popup-anchor-top-right .maplibregl-popup-tip {
+  border-bottom-color: #f3efe7;
+}
+.carefree-popup.maplibregl-popup-anchor-bottom .maplibregl-popup-tip,
+.carefree-popup.maplibregl-popup-anchor-bottom-left .maplibregl-popup-tip,
+.carefree-popup.maplibregl-popup-anchor-bottom-right .maplibregl-popup-tip {
+  border-top-color: #f3efe7;
+}
+.carefree-popup.maplibregl-popup-anchor-left .maplibregl-popup-tip {
+  border-right-color: #f3efe7;
+}
+.carefree-popup.maplibregl-popup-anchor-right .maplibregl-popup-tip {
+  border-left-color: #f3efe7;
+}
+
+.carefree-popup__eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  color: rgba(23, 22, 19, 0.45);
+}
+
+.carefree-popup__title {
+  margin-top: 8px;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.carefree-popup__address {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: rgba(23, 22, 19, 0.6);
+}
+
+.carefree-popup__link {
+  display: inline-block;
+  margin-top: 14px;
+  padding-bottom: 2px;
+  border-bottom: 1px solid rgba(23, 22, 19, 0.3);
+  font-size: 13px;
+  font-weight: 500;
+  color: #171613;
+  text-decoration: none;
+  transition: border-color 0.3s;
+}
+.carefree-popup__link:hover {
+  border-color: #171613;
+}
+
+/* ---------- Контролы ---------- */
+.location-map .maplibregl-ctrl-group {
+  overflow: hidden;
+  border-radius: 20px;
+  background: #f3efe7;
+  box-shadow: 0 10px 30px -10px rgba(23, 22, 19, 0.4);
+}
+.location-map .maplibregl-ctrl-group button {
+  width: 40px;
+  height: 40px;
+}
+.location-map .maplibregl-ctrl-group button + button {
+  border-top: 1px solid rgba(23, 22, 19, 0.1);
+}
+.location-map .maplibregl-ctrl-group button:hover {
+  background-color: rgba(23, 22, 19, 0.06);
+}
+
+.location-map .maplibregl-ctrl-bottom-right {
+  margin: 0 12px 28px 0;
+}
+
+/* Атрибуция оставляем (требование лицензии OSM / OpenFreeMap), просто делаем аккуратнее */
+.location-map .maplibregl-ctrl-attrib {
+  border-radius: 12px 0 0 0;
+  background: rgba(243, 239, 231, 0.85);
+  font-size: 11px;
+}
